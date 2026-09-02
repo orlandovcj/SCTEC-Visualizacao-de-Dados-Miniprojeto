@@ -26,18 +26,27 @@ A base reúne informações de compras públicas e privadas, com a finalidade de
 O processo de preparação e consolidação dos dados históricos seguiu as seguintes etapas técnicas:
 
 1. **Aquisição dos dados:** Download manual dos arquivos `.csv` referentes aos anos de 2020, 2021, 2022, 2023, 2024, 2025 e 2026 diretamente do portal de dados abertos. Os dados estão disponíveis publicamente no Banco de Preços em Saúde (BPF) mantido pelo Ministério da Saúde.
-2. **Inspeção estrutural:** Verificação inicial dos arquivos anuais para mapear discrepâncias de *encoding*, separadores de colunas, nomes de variáveis e tipos de dados entre os diferentes anos. *(Nota: Adicione aqui se encontrou diferenças de colunas entre os anos e como procedeu).*
-3. **Importação e Padronização:** Leitura individual dos arquivos `.csv` `[Atualizar nesta seção como foi feita essa importaão e padronização dos dados]`. Padronização dos nomes das colunas e correção de problemas de codificação de caracteres (ex: *UTF-8*).
-4. **Tratamento de Tipos e Inconsistências:** Ajuste dos tipos de dados (garantindo que datas estejam no formato adequado e valores monetários/quantidades sejam numéricos). Verificação de valores nulos, vazios e avaliação de registros duplicados.
-5. **Concatenação (*Append*):** Junção vertical das bases anuais em uma única estrutura tabular unificada, garantindo o alinhamento correto das colunas.
-6. **Rastreabilidade:** Manutenção de uma coluna identificadora do ano da compra (ou derivação da data) para permitir filtragens temporais futuras.
-7. **Exportação:** Geração e salvamento do arquivo consolidado final com o nome `BPS_20_26_OrlandoCastro.csv`.
-
----
-
-*(Documentação a ser atualizada nas próximas etapas)*
+2. **Inspeção estrutural:** Verificação inicial dos arquivos anuais para mapear discrepâncias de *encoding*, separadores de colunas, nomes de variáveis e tipos de dados entre os diferentes anos. **Não foram identificadas diferenças de colunas entre os anos**.
+3. **Importação e Padronização:** Leitura individual dos arquivos `.csv` e agragação em um único arquivo por meio de script Python em um notebook `consolidacao_dados.ipynb`.
+4. **Concatenação (*Append*):** Junção vertical das bases anuais em uma única estrutura tabular unificada, garantindo o alinhamento correto das colunas.
+5. **Rastreabilidade:** Manutenção de uma coluna identificadora do ano da compra (ou derivação da data) para permitir filtragens temporais futuras.
+6. **Exportação:** Geração e salvamento do arquivo consolidado final com o nome `BPS_20_26_OrlandoCastro.csv`.
 
 ## 5. Tratamentos e transformações realizadas nos dados
+
+Após a junção dos arquivos de dados anuais em um único `.csv`, foi criado o notebook `analise_preliminar.ipynb` que realiza a análise preliminar e o tratamento dos dados, garantindo a integridade e consistência das informações antes de prosseguir com análises mais aprofundadas.
+
+Este notebook utiliza como arquivo de entrada os dados em `BPS_20_26_OrlandoCastro.csv` e tem como resultado o arquivo de saída: `BPS_20_26_OrlandoCastro_atualizado.csv`.
+
+Todas as etapas da preparação do arquivo de dados se encontram detalhadamente documentadas no notebook `analise_preliminar.ipynb`. 
+
+As principais verificações incluem:
+
+1. **Verificação de duplicidade de registros:** Foram identificados e removidos registros duplicados, garantindo que cada compra seja representada apenas uma vez no arquivo consolidado.
+2. **Verificação de consistência de tipos de dados:** Foram verificadas as colunas do arquivo consolidado para garantir que os tipos de dados estejam corretos e consistentes com as definições originais dos arquivos CSV. Isso inclui a verificação de campos numéricos, datas e strings, garantindo que os dados estejam formatados corretamente para análise.
+3. **Verificação de valores nulos:** Foram realizadas verificações adicionais para identificar e tratar valores nulos em colunas críticas, garantindo que os dados estejam completos e consistentes para análise. Isso inclui a verificação de campos obrigatórios, como `compra`, `descricao_catmat` e `cnpj_instituicao`, garantindo que não haja registros com informações ausentes que possam comprometer a análise.
+
+---
 
 *(A ser preenchido após a conclusão da Sprint 2)*
 

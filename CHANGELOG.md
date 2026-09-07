@@ -5,6 +5,17 @@ Este arquivo documenta as evoluções, alterações e correções do projeto do 
 O formato é baseado no padrão [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/), e este projeto orienta-se pelas Sprints estabelecidas nas instruções do Mini-Projeto Avaliativo.
 
 ---
+## [2.0.0] - 2026-09-02
+
+### Adicionado
+
+- Realizada a etapa de tratamento preliminar dos dados com o uso do notebook `analise_preliminar.ipynb` na pasta `dados`.
+- Resultado do tratamento preliminar se encontra do arquivo `BPS_20_26_OrlandoCastro_atualizado.zip`.
+
+### Atualizado
+
+- Atualizado o `README.md` na pasta `dados` com detalhes sobre o tratamento preliminar dos dados.
+---
 
 ## [1.0.0] - 2026-08-31
 

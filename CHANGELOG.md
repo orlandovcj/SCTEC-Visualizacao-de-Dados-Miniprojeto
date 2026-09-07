@@ -5,6 +5,15 @@ Este arquivo documenta as evoluções, alterações e correções do projeto do 
 O formato é baseado no padrão [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/), e este projeto orienta-se pelas Sprints estabelecidas nas instruções do Mini-Projeto Avaliativo.
 
 ---
+## [3.0.0] - 2026-09-07
+
+### Adicionado
+
+- Realizada a etapa de modelagem dos dados criando um esquema estrela a partir dos dados em CSV preliminarmente tratados com o uso do notebook `modelagem_dados.ipynb` na pasta `dados_tratados`.
+- Resultado da modelagem de dados se encontra do arquivo `dados_tratados.zip`.
+- Adicionado o `README.md`na pasta `dados_tratados`com detalhes sobre o processo de modelagem dos dados.
+---
+
 ## [2.0.0] - 2026-09-02
 
 ### Adicionado

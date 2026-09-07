@@ -1,6 +1,6 @@
 # Dados Tratados - Banco de Preços em Saúde (BPS)
 
-Este diretório contém os arquivos resultantes do processamento de dados realizado no notebook `criacao_base_dados.ipynb`. O objetivo desta etapa foi transformar a base de dados bruta e consolidada em um modelo dimensional (**Star Schema**) para otimizar a performance de consultas e viabilizar a importação para ferramentas de BI (como Google Data Studio), superando limitações de tamanho de arquivo.
+Este diretório contém os arquivos resultantes do processamento de dados realizado no notebook `modelagem_dados.ipynb`. O objetivo desta etapa foi transformar a base de dados bruta e consolidada em um modelo dimensional (**Star Schema**) para otimizar a performance de consultas e viabilizar a importação para ferramentas de BI (como Google Data Studio), superando limitações de tamanho de arquivo.
 
 ## ⚙️ Processamento e Etapas
 
@@ -32,4 +32,4 @@ Cada tabela do modelo dimensional foi exportada para o formato `.csv` com separa
 - `fato_BPS_20_2026.csv`: Tabela central com as métricas de compras.
 - `Dim_*.csv`: Tabelas de suporte com os atributos de cada dimensão.
 
-**Os arquivos CSV foram compactados em um arquivo ZIP por questões de limitação no tamanho de upload de arquivos no GitHub e praticidade de download.**
+**Os arquivos CSV gerados pelo notebook foram compactados em um arquivo ZIP por questões de limitação no tamanho de upload de arquivos no GitHub e praticidade de download.**

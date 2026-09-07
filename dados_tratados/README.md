@@ -32,3 +32,4 @@ Cada tabela do modelo dimensional foi exportada para o formato `.csv` com separa
 - `fato_BPS_20_2026.csv`: Tabela central com as métricas de compras.
 - `Dim_*.csv`: Tabelas de suporte com os atributos de cada dimensão.
 
+**Os arquivos CSV foram compactados em um arquivo ZIP por questões de limitação no tamanho de upload de arquivos no GitHub e praticidade de download.**

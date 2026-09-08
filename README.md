@@ -54,11 +54,23 @@ As principais verificações incluem:
 2. **Verificação de consistência de tipos de dados:** Foram verificadas as colunas do arquivo consolidado para garantir que os tipos de dados estejam corretos e consistentes com as definições originais dos arquivos CSV. Isso inclui a verificação de campos numéricos, datas e strings, garantindo que os dados estejam formatados corretamente para análise.
 3. **Verificação de valores nulos:** Foram realizadas verificações adicionais para identificar e tratar valores nulos em colunas críticas, garantindo que os dados estejam completos e consistentes para análise. Isso inclui a verificação de campos obrigatórios, como `compra`, `descricao_catmat` e `cnpj_instituicao`, garantindo que não haja registros com informações ausentes que possam comprometer a análise.
 
-
-
 ## 7. Camada Ouro: Modelagem de Dados
 
-A etapa final consiste na modelagem dos dados tratados para um esquema estrela (*star schema*), estruturando-os em tabelas-fato e tabelas-dimensões. Esse processo otimiza o tamanho do dataset e permite a criação de métricas complexas para o dashboard. Os detalhes desta modelagem estão documentados no notebook `modelagem_dados.ipynb` e no README da pasta `dados_tratados/`.
+A etapa final consiste na modelagem dos dados tratados para um esquema estrela (*star schema*), estruturando-os em tabelas-fato e tabelas-dimensões. Esse processo otimiza o tamanho do dataset e permite a criação de métricas complexas para o dashboard. Os detalhes desta modelagem estão documentados no notebook `modelagem_dados.ipynb` e no README da pasta `dados_gold/`.
+
+Como resultado final temos as tabelas em `.CSV` do esquema estrela. A tabela `fato_BPS_20_2026` foi gerada através de JOINs entre a tabela bruta e as dimensões. Ela armazena as métricas quantitativas e as chaves estrangeiras que ligam os fatos às suas respectivas dimensões.
+
+Foram criadas tabelas específicas para cada entidade, onde cada registro único recebeu um identificador numérico (chave primária):
+
+- **Dim_instituicoes**: Cadastro de órgãos compradores (`cod_instituicao`).
+- **Dim_municipios**: Localidades das compras (`cod_municipio`).
+- **Dim_materiais**: Catálogo de itens, indexado pelo `codigo_br`.
+- **Dim_fornecedor**: Cadastro de empresas fornecedoras (`cod_fornecedor`).
+- **Dim_fabricante**: Cadastro de fabricantes (`cod_fabricante`).
+- **Dim_modalidade_compra**: Tipos de modalidade de licitação (`cod_modalidade`).
+- **Dim_tipo_compra**: Tipos de compra (`cod_tipo`).
+
+Os arquivos CSV gerados pelo notebook foram compactados em um arquivo ZIP `dados_gold.zip` por questões de limitação no tamanho de upload de arquivos no GitHub e praticidade de download
 
 ## 8. Descrição das principais colunas utilizadas
 

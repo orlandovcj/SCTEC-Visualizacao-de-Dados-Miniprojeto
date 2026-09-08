@@ -12,7 +12,15 @@ A aquisição de medicamentos e materiais hospitalares por órgãos governamenta
 
 É importante ressaltar que diferenças nos preços unitários não implicam, por si só, irregularidades ou sobrepreço; essas variações podem estar atreladas a fatores como fabricante, apresentação do produto, quantidade adquirida, modalidade de compra e período. Portanto, o problema investigado consiste em fornecer transparência e clareza a esse volume de dados, permitindo ao gestor público formular perguntas de negócio e tomar decisões fundamentadas.
 
-## 3. Fonte dos dados
+## 3. Arquitetura de Dados
+
+O projeto adota a **Arquitetura Medalhão**, organizando o fluxo de dados em três camadas para garantir a qualidade, integridade e performance das análises:
+
+- **Camada Bronze (Raw):** Dados brutos extraídos e consolidados. Foco em ingestão e rastreabilidade.
+- **Camada Prata (Trusted):** Dados limpos, padronizados e enriquecidos. Foco em qualidade e consistência.
+- **Camada Ouro (Refined):** Dados modelados em *Star Schema* (Fatos e Dimensões). Foco em performance de BI e consumo analítico.
+
+## 4. Fonte dos dados
 
 Os dados utilizados neste projeto são públicos e foram extraídos do Portal Brasileiro de Dados Abertos do Ministério da Saúde, especificamente do **Banco de Preços em Saúde (BPS)**.
 
@@ -21,7 +29,7 @@ Os dados utilizados neste projeto são públicos e foram extraídos do Portal Br
 
 A base reúne informações de compras públicas e privadas, com a finalidade de subsidiar negociações e compras mais eficientes no setor de saúde.
 
-## 4. Procedimentos utilizados para baixar e concatenar as bases anuais
+## 5. Camada Bronze: Procedimentos para baixar e concatenar as bases anuais
 
 O processo de preparação e consolidação dos dados históricos seguiu as seguintes etapas técnicas:
 
@@ -32,7 +40,7 @@ O processo de preparação e consolidação dos dados históricos seguiu as segu
 5. **Rastreabilidade:** Manutenção de uma coluna identificadora do ano da compra (ou derivação da data) para permitir filtragens temporais futuras.
 6. **Exportação:** Geração e salvamento do arquivo consolidado final com o nome `BPS_20_26_OrlandoCastro.csv`.
 
-## 5. Tratamentos e transformações realizadas nos dados
+## 6. Camada Prata: Tratamentos e transformações realizadas nos dados
 
 Após a junção dos arquivos de dados anuais em um único `.csv`, foi criado o notebook `analise_preliminar.ipynb` que realiza a análise preliminar e o tratamento dos dados, garantindo a integridade e consistência das informações antes de prosseguir com análises mais aprofundadas.
 
@@ -46,34 +54,36 @@ As principais verificações incluem:
 2. **Verificação de consistência de tipos de dados:** Foram verificadas as colunas do arquivo consolidado para garantir que os tipos de dados estejam corretos e consistentes com as definições originais dos arquivos CSV. Isso inclui a verificação de campos numéricos, datas e strings, garantindo que os dados estejam formatados corretamente para análise.
 3. **Verificação de valores nulos:** Foram realizadas verificações adicionais para identificar e tratar valores nulos em colunas críticas, garantindo que os dados estejam completos e consistentes para análise. Isso inclui a verificação de campos obrigatórios, como `compra`, `descricao_catmat` e `cnpj_instituicao`, garantindo que não haja registros com informações ausentes que possam comprometer a análise.
 
----
+
+
+## 7. Camada Ouro: Modelagem de Dados
+
+A etapa final consiste na modelagem dos dados tratados para um esquema estrela (*star schema*), estruturando-os em tabelas-fato e tabelas-dimensões. Esse processo otimiza o tamanho do dataset e permite a criação de métricas complexas para o dashboard. Os detalhes desta modelagem estão documentados no notebook `modelagem_dados.ipynb` e no README da pasta `dados_tratados/`.
+
+## 8. Descrição das principais colunas utilizadas
 
 *(A ser preenchido após a conclusão da Sprint 2)*
 
-## 6. Descrição das principais colunas utilizadas
-
-*(A ser preenchido após a conclusão da Sprint 2)*
-
-## 7. Definição dos KPIs e das métricas
+## 9. Definição dos KPIs e das métricas
 
 *(A ser preenchido após a conclusão da Sprint 3)*
 
-## 8. Link ou imagens do dashboard
+## 10. Link ou imagens do dashboard
 
 *(A ser preenchido após a conclusão da Sprint 4)*
 
-## 9. Principais análises e descobertas
+## 11. Principais análises e descobertas
 
 *(A ser preenchido após a conclusão da Sprint 5)*
 
-## 10. Recomendações baseadas nos dados
+## 12. Recomendações baseadas nos dados
 
 *(A ser preenchido após a conclusão da Sprint 5)*
 
-## 11. Limitações identificadas na base ou na análise
+## 13. Limitações identificadas na base ou na análise
 
 *(A ser preenchido após a conclusão da Sprint 5)*
 
-## 12. Instruções para reprodução do projeto
+## 14. Instruções para reprodução do projeto
 
 *(A ser preenchido após a conclusão da Sprint 6)*

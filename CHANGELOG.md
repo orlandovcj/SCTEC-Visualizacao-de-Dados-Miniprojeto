@@ -6,6 +6,19 @@ O formato é baseado no padrão [Keep a Changelog](https://keepachangelog.com/pt
 
 ---
 
+## [5.0.0] - 2026-09-10
+
+### Adicionado
+
+- Adicionada versão final do dashboard `Dashboard_BPS.pibx`contendo cinco abas: Visão Geral, UF/Municípios, Fornecedores, Fabricantes e Materiais.
+- Imagens dos paineis do dashboard foram incluídas em `/imagens`.
+
+### Atualizado
+
+- `README.md` atualizado com as descrições de cada aba do dashboard.
+
+---
+
 ## [4.0.0] - 2026-09-09
 
 ### Adicionado

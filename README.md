@@ -134,19 +134,35 @@ O dashboard foi desenvolvido no **Power BI Desktop**, como alternativa ao Looker
 - **Arquivo do dashboard:** `Dashboard_BPS.pbix` 
 - **Capturas de tela:** as imagens do painel principal estão disponíveis na pasta `imagens/` deste repositório .
 
+O painel principal reúne seis cartões de KPI no topo (Instituições Compradoras, Fornecedores, Número de Compras, Quantidade de Itens, Preço Unitário Médio Ponderado e Valor Total de Compras), filtros interativos por Ano, UF, Tipo de Compra e Modalidade de Compra na lateral esquerda, e cinco visuais analíticos: evolução anual do valor de compras, valor total por UF, distribuição por modalidade de compra, proporção por tipo de compra e ranking dos principais fornecedores.
+
 <div>
 <p align="center">
   <img src="imagens/dashboard_1.png">
 </p>
 </div>
 
-O painel principal reúne seis cartões de KPI no topo (Instituições Compradoras, Fornecedores, Número de Compras, Quantidade de Itens, Preço Unitário Médio Ponderado e Valor Total de Compras), filtros interativos por Ano, UF, Tipo de Compra e Modalidade de Compra na lateral esquerda, e cinco visuais analíticos: evolução anual do valor de compras, valor total por UF, distribuição por modalidade de compra, proporção por tipo de compra e ranking dos principais fornecedores.
-
-O segundo painel apresenta métricas e gráficos relacionados aos fornecedores.
+O segundo painel apresenta métricas e gráficos relacionados a estados e municípios. Nesta aba, é possível verificar quais os maiores fornecedores e o materiais que foram comprados pelo 
 
 <div>
 <p align="center">
   <img src="imagens/dashboard_2.png">
+</p>
+</div>
+
+As abas **Fornecedores**  e **Fabricantes** permitem visualizar os KPIs relacionados além de analisar as compras nas quais eles estiveram envolvidos.
+
+<div>
+<p align="center">
+  <img src="imagens/dashboard_3.png">
+</p>
+</div>
+
+Por fim, é possivel analisar as variações de preços registrados no BPS por material. Na aba **Materiais**, gráficos de bloxplot mostram como os preços dos materiais variaram por ano, fornecedor, fabricante e estado. 
+
+<div>    
+<p align="center">
+  <img src="imagens/dashboard_5.png">
 </p>
 </div>
 
@@ -168,7 +184,7 @@ O segundo painel apresenta métricas e gráficos relacionados aos fornecedores.
 
 - **Ausência de padronização de causalidade nas variações de preço:** conforme alertado no próprio enunciado do desafio, diferenças de preço unitário não podem ser interpretadas automaticamente como sobrepreço ou irregularidade, pois fatores como fabricante, apresentação, unidade de fornecimento e modalidade de compra influenciam diretamente o valor, sem que a base permita isolar completamente cada uma dessas variáveis.
 - **Remoção de colunas com alta incidência de nulos:** as colunas `generico` e `anvisa` foram excluídas do modelo final por apresentarem aproximadamente 50% de valores ausentes, o que impede análises relacionadas à natureza genérica dos medicamentos ou ao registro na ANVISA.
-- **Enriquecimento parcial via API externa:** a recuperação de nomes de instituições ausentes via API do OpenCNPJ.org dependeu da disponibilidade e atualização da base de terceiros, podendo não cobrir 100% dos casos nulos originais caso o CNPJ consultado não estivesse cadastrado na fonte externa.
+- 
 - **Dados de 2026 parciais:** por se tratar do ano corrente, o volume de registros de 2026 é naturalmente incompleto em comparação aos anos anteriores, o que pode distorcer comparações diretas de totais anuais se não for considerado esse recorte temporal parcial.
 - **Preço unitário médio ponderado sensível ao mix de produtos:** ao aplicar filtros que combinem produtos, apresentações ou unidades de fornecimento distintas, esse indicador perde parte de sua comparabilidade, exigindo cautela na leitura quando a segmentação for muito ampla.
 

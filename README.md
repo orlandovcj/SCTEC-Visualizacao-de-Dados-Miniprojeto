@@ -226,4 +226,4 @@ Para reproduzir integralmente o pipeline de dados e o dashboard deste projeto, s
 
 ### Veja um vídeo
 
-- **Vídeo de apresentação do Miniprojeto no YouTube:** [https://dadosabertos.saude.gov.br/dataset/bps](https://www.youtube.com/watch?v=KY7PjPzTNPk).
+- **Vídeo de apresentação do Miniprojeto no YouTube:** [https://www.youtube.com/watch?v=KY7PjPzTNPk](https://www.youtube.com/watch?v=KY7PjPzTNPk).

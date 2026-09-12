@@ -223,3 +223,7 @@ Para reproduzir integralmente o pipeline de dados e o dashboard deste projeto, s
 
 - Os arquivos de dados intermediários e finais estão disponíveis em formato `.zip` nas pastas `dados_bronze/`, `dados_silver/` e `dados_gold/` devido a limitações de tamanho de upload do GitHub.
 - Caso a API do OpenCNPJ.org esteja indisponível no momento da execução, o notebook `analise_preliminar.ipynb` pode ser ajustado para utilizar outra API disponível.
+
+### Veja um vídeo
+
+- **Vídeo de apresentação do Miniprojeto no YouTube:** [https://dadosabertos.saude.gov.br/dataset/bps](https://www.youtube.com/watch?v=KY7PjPzTNPk).
